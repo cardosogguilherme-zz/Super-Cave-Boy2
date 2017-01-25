@@ -27,9 +27,14 @@
             <kind>1</kind>
             <string>///initialize the player object
 
-spd = 5;
+spd = 8;
+acc = 2;
 hspd = 0;
 vspd = 0;
+grav = 1.5;
+state = move_state;
+
+
 </string>
           </argument>
         </arguments>
@@ -52,58 +57,8 @@ vspd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Control the player
-
-var right = keyboard_check(vk_right);
-var left = keyboard_check(vk_left);
-var up = keyboard_check(vk_up);
-var down = keyboard_check(vk_down);
-
-if (right) {
-        hspd = spd;
-}
-
-if (left) {
-    hspd = -spd;    
-}
-
-if (up) {
-    vspd = -spd;     
-}
-
-if (down) {
-    vspd = spd;            
-}
-
-//Friction
-
-if (!right &amp;&amp; !left){
-    hspd = 0;
-}
-
-if (!up &amp;&amp; !down){
-    vspd = 0;
-}
-
-//Horizontal Collisions
-if(place_meeting(x + hspd, y, obj_solid)){
-    
-    while(!place_meeting(x + sign(hspd), y, obj_solid)){
-        x += sign(hspd);
-    }
-    hspd = 0;
-}
-x += hspd;
-
-//Vertical Collisions
-if(place_meeting(x, y + vspd, obj_solid)){
-    
-    while(!place_meeting(x, y + sign(vspd), obj_solid)){
-        y += sign(vspd);
-    }
-    vspd = 0;
-}
-y += vspd;
+            <string>///Control the Player 
+script_execute(state);
 </string>
           </argument>
         </arguments>

@@ -23,6 +23,16 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="Helper Scripts">
+      <script>scripts\move.gml</script>
+      <script>scripts\apply_friction.gml</script>
+    </scripts>
+    <scripts name="Player States">
+      <script>scripts\move_state.gml</script>
+      <script>scripts\ledge_grab_state.gml</script>
+    </scripts>
+  </scripts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\obj_player</object>
